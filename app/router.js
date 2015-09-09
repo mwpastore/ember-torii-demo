@@ -6,6 +6,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('a');
+  this.route('b');
+  // Change the protected routes to this.authenticatedRoute()!
+  //this.route('protected', function() {
+  this.authenticatedRoute('protected', function() {
+    this.route('c');
+    this.route('d');
+  });
 });
 
 export default Router;

@@ -16,6 +16,20 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'facebook-oauth2': {
+          apiKey: 'your-facebook-app-id',
+          scope: 'email'
+        }
+      }
+    },
+
+    contentSecurityPolicy: {
+      'style-src': "'self' 'unsafe-inline'",
     }
   };
 

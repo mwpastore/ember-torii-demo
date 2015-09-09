@@ -1,3 +1,20 @@
+{{! app/templates/application.hbs }}
+
 <h2 id="title">Welcome to Ember</h2>
+
+{{#if session.isAuthenticated}}
+  <p>You're logged in, {{session.user.name}}!</p>
+{{/if}}
+
+{{link-to 'Public Page A' 'a'}}<br/>
+{{link-to 'Public Page B' 'b'}}<br/>
+{{#if session.isAuthenticated}}
+  {{link-to 'Protected Page C' 'protected.c'}}<br/>
+  {{link-to 'Protected Page D' 'protected.d'}}<br/>
+
+  <a href="#" {{action 'logout'}}>Logout</a><br/>
+{{else}}
+  <a href="#" {{action 'login' 'facebook-oauth2'}}>Login with Facebook</a><br/>
+{{/if}}
 
 {{outlet}}
