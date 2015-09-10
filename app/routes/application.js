@@ -4,14 +4,14 @@ export default Ember.Route.extend({
   actions: {
     login(providerName) {
       const route = this;
-      this.get('session').open(providerName).then(() => {
+      this.get('toriiSession').open(providerName).then(() => {
         route.transitionTo('protected.c');
       });
     },
 
     logout() {
       const route = this;
-      this.get('session').close().then(() => {
+      this.get('toriiSession').close().then(() => {
         route.transitionTo('a');
       });
     },

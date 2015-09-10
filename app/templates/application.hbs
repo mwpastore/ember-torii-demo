@@ -2,13 +2,13 @@
 
 <h2 id="title">Welcome to Ember</h2>
 
-{{#if session.isAuthenticated}}
-  <p>You're logged in, {{session.user.name}}!</p>
+{{#if toriiSession.isAuthenticated}}
+  <p>You're logged in, {{toriiSession.user.name}}!</p>
 {{/if}}
 
 {{link-to 'Public Page A' 'a'}}<br/>
 {{link-to 'Public Page B' 'b'}}<br/>
-{{#if session.isAuthenticated}}
+{{#if toriiSession.isAuthenticated}}
   {{link-to 'Protected Page C' 'protected.c'}}<br/>
   {{link-to 'Protected Page D' 'protected.d'}}<br/>
 
