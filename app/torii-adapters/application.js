@@ -9,41 +9,35 @@ export default Ember.Object.extend({
   },
 
   open(postData) {
-    return new Ember.RSVP.Promise((resolve, reject) => {
-      return Ember.$.ajax({
-        dataType: 'json',
-        method: 'POST',
-        url: '/api/session/start',
-        contentType: 'application/json',
-        data: JSON.stringify(postData),
-        processData: false,
-        success: Ember.run.bind(null, resolve),
-        error: Ember.run.bind(null, reject)
-      });
-    });
+    return new Ember.RSVP.Promise((resolve, reject) => Ember.$.ajax({
+      dataType: 'json',
+      method: 'POST',
+      url: '/api/session/start',
+      contentType: 'application/json',
+      data: JSON.stringify(postData),
+      processData: false,
+      success: Ember.run.bind(null, resolve),
+      error: Ember.run.bind(null, reject)
+    }));
   },
 
   fetch() {
-    return new Ember.RSVP.Promise((resolve, reject) => {
-      return Ember.$.ajax({
-        dataType: 'json',
-        method: 'GET',
-        url: '/api/session/info',
-        success: Ember.run.bind(null, resolve),
-        error: Ember.run.bind(null, reject)
-      });
-    });
+    return new Ember.RSVP.Promise((resolve, reject) => Ember.$.ajax({
+      dataType: 'json',
+      method: 'GET',
+      url: '/api/session/info',
+      success: Ember.run.bind(null, resolve),
+      error: Ember.run.bind(null, reject)
+    }));
   },
 
   close() {
-    return new Ember.RSVP.Promise((resolve, reject) => {
-      return Ember.$.ajax({
-        dataType: 'json',
-        method: 'POST',
-        url: '/api/session/end',
-        success: Ember.run.bind(null, resolve),
-        error: Ember.run.bind(null, reject)
-      });
-    });
+    return new Ember.RSVP.Promise((resolve, reject) => Ember.$.ajax({
+      dataType: 'json',
+      method: 'POST',
+      url: '/api/session/end',
+      success: Ember.run.bind(null, resolve),
+      error: Ember.run.bind(null, reject)
+    }));
   }
 });
