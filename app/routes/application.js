@@ -16,6 +16,12 @@ export default Ember.Route.extend({
 
     accessDenied() {
       this.transitionTo('b');
+    },
+
+    linkTo(providerName) {
+      this.get('torii').open(providerName).then((results) => {
+        window.alert(`You can now do something with OAuth2 code ${results.authorizationCode} from ${results.provider}!`);
+      });
     }
   }
 });

@@ -24,6 +24,9 @@ module.exports = function(environment) {
         'facebook-oauth2': {
           apiKey: 'your-facebook-app-id',
           scope: 'email'
+        },
+        'github-oauth2': {
+          apiKey: 'your-github-client-id'
         }
       }
     },
